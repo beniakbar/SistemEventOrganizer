@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  message = '';
+
+  constructor(private api: ApiService) {}
+
+  ionViewWillEnter() {
+    this.api.getHello().subscribe((res: any) => {
+      this.message = res.message;
+    });
+  }
 
 }
