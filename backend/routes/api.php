@@ -21,16 +21,8 @@ Route::get('/hello', function () {
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
-// Route yang butuh token
+// Semua route yang butuh token
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-});
-
-Route::middleware('auth:sanctum')->group(function () {
-    // yang sudah ada
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', function (Request $request) {
         return $request->user();
@@ -43,8 +35,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/events/{id}', [EventController::class, 'update']);
     Route::delete('/events/{id}', [EventController::class, 'destroy']);
 
-    //Pendaftaran
+    // Pendaftaran Peserta
     Route::get('/events/{id}/form', [PendaftaranController::class, 'showForm']);
     Route::post('/pendaftaran', [PendaftaranController::class, 'daftar']);
-});
 
+    // Scan Absen
+    Route::post('/absen', [PendaftaranController::class, 'absen']);
+
+    // Generate Sertifikat
+    Route::post('/sertifikat', [PendaftaranController::class, 'generateSertifikat']);
+});
