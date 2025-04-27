@@ -144,4 +144,10 @@ git push origin main
 
 ---
 
+### 📂 System Requirement 
+
+```bash
+composer require simplesoftwareio/simple-qrcode
+```
+
 Semoga panduan ini membantu semua anggota tim untuk bekerjasama dengan lancar dan rapi 🚀
