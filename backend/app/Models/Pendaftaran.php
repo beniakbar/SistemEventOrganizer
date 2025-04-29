@@ -9,9 +9,16 @@ class Pendaftaran extends Model
 {
     use HasFactory;
 
+    protected $table = 'pendaftaran';
+
     protected $fillable = [
         'user_id', 'event_id', 'status_kehadiran', 'qr_code'
     ];
+
+    public function user()
+    {
+    return $this->belongsTo(User::class);
+    }
 
     public function event()
     {

@@ -9,6 +9,8 @@ class FormJawaban extends Model
 {
     use HasFactory;
 
+    protected $table = 'form_jawaban';
+
     protected $fillable = [
         'pendaftaran_id', 'field_id', 'jawaban'
     ];
