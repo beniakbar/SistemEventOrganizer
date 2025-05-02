@@ -1,0 +1,15 @@
+<ion-header><ion-toolbar><ion-title>List Event</ion-title></ion-toolbar></ion-header>
+<ion-content class="ion-padding">
+  <ion-list *ngIf="events.length > 0; else loading">
+    <ion-item *ngFor="let event of events" (click)="lihatDetail(event.id)">
+      <ion-label>
+        <h2>{{ event.nama_event }}</h2>
+        <p>{{ event.lokasi }} - {{ event.jadwal | date:'medium' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #loading>
+    <ion-text color="medium">Memuat daftar event...</ion-text>
+  </ng-template>
+</ion-content>
