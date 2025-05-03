@@ -1,13 +1,24 @@
-<ion-header><ion-toolbar><ion-title>Register</ion-title></ion-toolbar></ion-header>
-<ion-content class="ion-padding">
-  <ion-input label="Nama" [(ngModel)]="name"></ion-input>
-  <ion-input label="Email" [(ngModel)]="email"></ion-input>
-  <ion-input label="Password" type="password" [(ngModel)]="password"></ion-input>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-select label="Role" [(ngModel)]="role">
-    <ion-select-option value="peserta">Peserta</ion-select-option>
-    <ion-select-option value="admin">Admin</ion-select-option>
-  </ion-select>
-
-  <ion-button expand="block" (click)="doRegister()">Daftar</ion-button>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nama</ion-label>
+      <ion-input [(ngModel)]="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="register()">Register</ion-button>
+  <ion-button expand="block" fill="clear" [routerLink]="['/login']">Sudah punya akun?</ion-button>
 </ion-content>
